@@ -3,7 +3,7 @@
 # python-starter
 A python starter project for Hypar.
 
-The `dotnet-starter` project is a dotnet core 2.0 library project which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to bootstrap your project.
+The `python-starter` project is a python 3.6 module which references the [Hypar SDK](https://github.com/hypar-io/sdk) and uses the [Hypar CLI](https://github.com/hypar-io/sdk/tree/master/src/cli) to bootstrap your project.
 
 ## Prerequisites
 - Install [Python 3.6](https://www.python.org/downloads/release/python-360/).
