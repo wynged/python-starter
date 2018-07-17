@@ -4,6 +4,7 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 from handler import handler
 import base64
+import json
 
 class TestHandler(unittest.TestCase):
 
@@ -15,7 +16,10 @@ class TestHandler(unittest.TestCase):
         result = handler.box(1, 1, 1)
         self.assertIsNotNone(result['model'])
         self.assertIsNotNone(result['computed'])
-        self.assertEqual(result['computed']['volume'], 1)
+        for key,value in result['computed'].items():
+            print('Checking item {} for correct volume...'.format(key))
+            if value.get('volume') is not None:
+                self.assertEqual(value['volume'], 1)
     
     def test_model_creation(self):
         result = handler.box(1,1,1)
