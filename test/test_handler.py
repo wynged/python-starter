@@ -21,11 +21,15 @@ class TestHandler(unittest.TestCase):
             if value.get('volume') is not None:
                 self.assertEqual(value['volume'], 1)
     
+    # This test saves the model to a .glb file for local testing
+    # with the gltf viewer.
     def test_save_glb(self):
         result = handler.box(1,1,1)
         with open("testModel.glb", "wb") as fh:
             fh.write(base64.b64decode(result['model']))
     
+    # This test saves a .gltf file and an associated .bin file
+    # for local testing. 
     def test_save_gltf(self):
         result = handler.create_box(1,1,1)
         result[1].save('test.gltf')
