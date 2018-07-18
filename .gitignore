@@ -107,3 +107,4 @@ venv.bak/
 *.glb
 *.bin
 *.gltf
+!model.glb

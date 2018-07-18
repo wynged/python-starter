@@ -39,3 +39,8 @@ class TestHandler(unittest.TestCase):
         result = handler.create_box(1,1,1)
         result[1].save_glb('resave_test.glb')
         result[1].save('resave_test.gltf')
+
+
+    def test_save_default_model(self):
+        result = handler.create_box(1,1,1)
+        result[1].save_glb('../model.glb')
