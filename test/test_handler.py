@@ -33,3 +33,9 @@ class TestHandler(unittest.TestCase):
     def test_save_gltf(self):
         result = handler.create_box(1,1,1)
         result[1].save('test.gltf')
+
+    # https://github.com/hypar-io/python-starter/issues/2 
+    def test_save_glb_save_gltf(self):
+        result = handler.create_box(1,1,1)
+        result[1].save_glb('resave_test.glb')
+        result[1].save('resave_test.gltf')
