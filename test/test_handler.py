@@ -21,8 +21,21 @@ class TestHandler(unittest.TestCase):
             if value.get('volume') is not None:
                 self.assertEqual(value['volume'], 1)
     
-    def test_model_creation(self):
+    # This test saves the model to a .glb file for local testing
+    # with the gltf viewer.
+    def test_save_glb(self):
         result = handler.box(1,1,1)
-
         with open("testModel.glb", "wb") as fh:
             fh.write(base64.b64decode(result['model']))
+    
+    # This test saves a .gltf file and an associated .bin file
+    # for local testing. 
+    def test_save_gltf(self):
+        result = handler.create_box(1,1,1)
+        result[1].save('test.gltf')
+
+    # https://github.com/hypar-io/python-starter/issues/2 
+    def test_save_glb_save_gltf(self):
+        result = handler.create_box(1,1,1)
+        result[1].save_glb('resave_test.glb')
+        result[1].save('resave_test.gltf')
