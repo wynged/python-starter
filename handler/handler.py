@@ -104,6 +104,6 @@ def create_box(length, width, height):
     index = create_square_face(vertices, normals, indices, index, b3, b4, t4, t3)
     index = create_square_face(vertices, normals, indices, index, b4, b1, t1, t4)
 
-    node_id = model.add_triangle_mesh(vertices, normals, indices, 0)
+    node_name = model.add_triangle_mesh(vertices, normals, indices, 0)
 
-    return (node_id, model)
+    return (node_name, model)
