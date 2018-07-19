@@ -103,5 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 
-.DS_Store
-.glb
+*.DS_Store
+*.glb
+*.bin
+*.gltf
+!model.glb

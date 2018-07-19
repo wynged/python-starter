@@ -31,9 +31,18 @@ def box(length: float, width: float, height: float) -> dict:
     if width <= 0.0:
         raise Exception('The width must be greater than 0.')
 
-    model = create_box(length, width, height)
+    data = create_box(length, width, height)
 
-    return {"model": model.save_base64(), "computed": {"volume": (height * length * width)}}
+    # Return the model encoded as a base64 string.
+    # Return data objects keyed by their id in the model.
+    return {
+        "model": data[1].save_base64(), 
+        "computed": {
+            data[0]:{
+                "volume":(height * length * width)
+            }
+        }
+    }
 
 def cross(a, b):
     c = [a[1]*b[2] - a[2]*b[1],
@@ -95,6 +104,6 @@ def create_box(length, width, height):
     index = create_square_face(vertices, normals, indices, index, b3, b4, t4, t3)
     index = create_square_face(vertices, normals, indices, index, b4, b1, t1, t4)
 
-    model.add_triangle_mesh(vertices, normals, indices, 0)
+    node_name = model.add_triangle_mesh(vertices, normals, indices, 0)
 
-    return model
+    return (node_name, model)
